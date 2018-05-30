@@ -29,11 +29,6 @@ export default {
   components: {
     Sidenav,
     Topnav
-  },
-  data () {
-    return {
-
-    }
   }
 }
 </script>
