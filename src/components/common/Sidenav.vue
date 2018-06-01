@@ -135,6 +135,10 @@ export default {
           this.items[i].active = false;
         }
       }
+
+      this.$router.push({
+        name: menuItem.title
+      });
     },
     toggleMiniSidenav () {
       this.mini = !this.mini;
