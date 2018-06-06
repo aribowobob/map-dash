@@ -1,23 +1,30 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Hello from '@/components/Hello';
-import Attractions from '@/components/Attractions';
+import Welcome from '@/components/Welcome';
+import GeneralPage from '@/components/GeneralPage';
+import CompletePage from '@/components/CompletePage';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      // Homepage
       path: '/',
-      name: 'Hello',
-      component: Hello
-    },
-    {
-      path: '/attractions',
-      name: 'Attractions',
-      component: Attractions
+      name: 'Welcome',
+      component: Welcome
+    }, {
+      path: '/',
+      name: 'Logout',
+      component: Welcome
+    }, {
+      path: '/general',
+      name: 'General',
+      component: GeneralPage
+    }, {
+       path: '/complete',
+       name: 'Complete',
+       component: CompletePage
     }
   ]
 });

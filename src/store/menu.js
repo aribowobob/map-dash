@@ -1,28 +1,17 @@
 const state = {
+  appName: 'App Name',
   mini: false,
   drawer: true,
-  userMenus: [
-    {
-      icon: "bubble_chart",
-      title: "Logout",
-      link: "/logout"
-    },
-    {
-      icon: "bubble_chart",
-      title: "Change Password",
-      link: "/changepassword"
-    }
-  ],
   activeMenuItem: 'Attractions'
 };
 
 const getters = {
-  getUserMenus: state => {
-    return state.userMenus;
-  },
-
   getActiveMenuItem: state => {
     return state.activeMenuItem;
+  },
+
+  getAppName: state => {
+    return state.appName;
   }
 };
 
