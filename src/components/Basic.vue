@@ -4,52 +4,31 @@
 
     <topnav is-login="false" sidenav="false"></topnav>
 
-    <v-content>
+    <v-content class="grey lighten-2" light>
       <v-container fluid grid-list-md>
+
+        <stats></stats>
+
         <v-layout row wrap>
-          <v-flex xs12 sm6 md3>
-            <v-card color="blue-grey darken-2" class="white--text">
-              <v-card-title primary-title>
-                <div class="headline">Unlimited music now</div>
-                <div>Listen to your favorite artists and albums whenever and wherever, online and offline.</div>
-              </v-card-title>
-            </v-card>
-          </v-flex>
-          <v-flex xs12 sm6 md3>
-            <v-card color="blue-grey darken-2" class="white--text">
-              <v-card-title primary-title>
-                <div class="headline">Unlimited music now</div>
-                <div>Listen to your favorite artists and albums whenever and wherever, online and offline.</div>
-              </v-card-title>
-            </v-card>
-          </v-flex>
-          <v-flex xs12 sm6 md3>
-            Lorem ipsum
-          </v-flex>
-          <v-flex xs12 sm6 md3>
-            Lorem ipsum
+          <v-flex xs12>
+            <data-table></data-table>
           </v-flex>
         </v-layout>
+
       </v-container>
-      <!-- <ul>
-        <li>stats</li>
-        <li>graph</li>
-        <li>table</li>
-      </ul> -->
     </v-content>
   </v-app>
 </template>
 
 <script>
 import Topnav from './common/Topnav';
+import Stats from './Stats';
+import DataTable from './DataTable';
 
 export default {
   name: 'basic',
   components: {
-    Topnav
+    Topnav, Stats, DataTable
   }
 }
 </script>
-
-<style lang="css">
-</style>

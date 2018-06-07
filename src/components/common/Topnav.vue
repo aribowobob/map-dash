@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="top-nav-wrapper">
-    <v-toolbar app dark color="primary">
+    <v-toolbar app dark color="blue darken-4">
       <v-toolbar-side-icon @click.native.stop="drawer = !drawer" v-if="sidenav === 'true'"></v-toolbar-side-icon>
       <v-toolbar-title @click="clickTopMenu('Welcome')">{{appName}}</v-toolbar-title>
       <v-spacer></v-spacer>
