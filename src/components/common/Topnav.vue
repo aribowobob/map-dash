@@ -2,7 +2,7 @@
   <div class="top-nav-wrapper">
     <v-toolbar app dark color="primary">
       <v-toolbar-side-icon @click.native.stop="drawer = !drawer" v-if="sidenav === 'true'"></v-toolbar-side-icon>
-      <v-toolbar-title>{{appName}}</v-toolbar-title>
+      <v-toolbar-title @click="clickTopMenu('Welcome')">{{appName}}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <template v-for="menu in visibleMenuItem">
@@ -61,7 +61,7 @@ export default {
       topMenus: [
         {
           title: 'Link One',
-          name: 'Welcome',
+          name: 'Basic',
           visibleLogin: false,
           visibleLogout: true
         }, {

@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-navigation-drawer class="blue lighten-5" width="250" light fixed :mini-variant.sync="mini" :value="drawer" app>
+  <v-navigation-drawer class="grey lighten-3" width="250" light fixed :mini-variant.sync="mini" :value="drawer" app>
 
     <v-list class="pa-0">
       <v-list-tile avatar tag="div">
