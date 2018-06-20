@@ -1,7 +1,7 @@
 <template lang="html">
   <v-card>
     <v-card-title>
-      <h2 class="title">Nutrition</h2>
+      <h2 class="title">Data Table</h2>
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"

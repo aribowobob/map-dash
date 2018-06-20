@@ -10,8 +10,12 @@
         <stats></stats>
 
         <v-layout row wrap>
-          <v-flex xs12>
+          <v-flex xs12 md6>
             <data-table></data-table>
+          </v-flex>
+
+          <v-flex xs12 md6>
+            <column-chart></column-chart>
           </v-flex>
         </v-layout>
 
@@ -24,11 +28,12 @@
 import Topnav from './common/Topnav';
 import Stats from './Stats';
 import DataTable from './DataTable';
+import ColumnChart from './ColumnChart';
 
 export default {
   name: 'basic',
   components: {
-    Topnav, Stats, DataTable
+    Topnav, Stats, DataTable, ColumnChart
   }
 }
 </script>
