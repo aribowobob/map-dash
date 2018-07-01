@@ -22,86 +22,62 @@
       </v-toolbar-items>
     </v-toolbar>
 
-    <v-dialog v-model="showLoginForm" persistent max-width="290">
-      <v-card>
-        <v-card-title class="headline">Login</v-card-title>
-        <v-card-text>
-          <v-form v-model="valid">
-            <v-text-field
-              v-model="username"
-              label="Username">
-            </v-text-field>
-            <v-text-field
-              v-model="password"
-              label="Password"
-              type="password">
-            </v-text-field>
-          </v-form>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary darken-1" flat @click.native="submitLogin">Submit</v-btn>
-          <v-btn color="grey" flat @click.native="showLoginForm = false">Batal</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+    <login-popup v-if="isLogin === 'false'"></login-popup>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import LoginPopup from './LoginPopup';
 
 export default {
   props: [
     'isLogin',
     'sidenav'
   ],
-  data () {
-    return {
-      topMenus: [
-        {
-          title: 'Link One',
-          name: 'Basic',
-          visibleLogin: false,
-          visibleLogout: true
-        }, {
-          title: 'Link Two',
-          name: 'General',
-          visibleLogin: true,
-          visibleLogout: false
-        }, {
-          title: 'Link Three',
-          name: 'Complete',
-          visibleLogin: true,
-          visibleLogout: false
-        }, {
-          title: 'Login',
-          name: 'Login',
-          visibleLogin: false,
-          visibleLogout: true
-        }, {
-          icon: 'more_vert',
-          title: 'userMenus',
-          name: 'User',
-          visibleLogin: true,
-          visibleLogout: false,
-          items: [
-            {
-              title: 'Change Password',
-              name: 'ChangePassword'
-            }, {
-              title: 'Logout',
-              name: 'Logout'
-            }
-          ]
-        }
-      ],
-      showLoginForm: false,
-      valid: false,
-      username: '',
-      password: ''
-    };
+  components: {
+    LoginPopup
   },
+  data: () => ({
+    topMenus: [
+      {
+        title: 'Link One',
+        name: 'Basic',
+        visibleLogin: false,
+        visibleLogout: true
+      }, {
+        title: 'Link Two',
+        name: 'General',
+        visibleLogin: true,
+        visibleLogout: false
+      }, {
+        title: 'Link Three',
+        name: 'Complete',
+        visibleLogin: true,
+        visibleLogout: false
+      }, {
+        title: 'Login',
+        name: 'Login',
+        visibleLogin: false,
+        visibleLogout: true
+      }, {
+        icon: 'more_vert',
+        title: 'userMenus',
+        name: 'User',
+        visibleLogin: true,
+        visibleLogout: false,
+        items: [
+          {
+            title: 'Change Password',
+            name: 'ChangePassword'
+          }, {
+            title: 'Logout',
+            name: 'Logout'
+          }
+        ]
+      }
+    ]
+  }),
   computed: {
     ...mapGetters ({
       userRealName: 'getRealName',
@@ -130,19 +106,13 @@ export default {
   methods: {
     clickTopMenu (menu) {
       if (menu === 'Login') {
-        this.showLoginForm = true;
+        this.$store.commit('toggleShowLoginForm');
       } else {
         this.$store.commit('setActiveMenuItem', menu);
         this.$router.push({
           name: menu
         });
       }
-    },
-
-    submitLogin () {
-      this.$router.push({
-        name: 'General'
-      });
     }
   }
 }

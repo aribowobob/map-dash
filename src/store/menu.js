@@ -2,7 +2,8 @@ const state = {
   appName: 'App Name',
   mini: false,
   drawer: true,
-  activeMenuItem: 'Attractions'
+  activeMenuItem: 'Attractions',
+  showLoginForm: false
 };
 
 const getters = {
@@ -32,6 +33,10 @@ const mutations = {
 
   toggleDrawer () {
     state.drawer = !state.drawer;
+  },
+
+  toggleShowLoginForm () {
+    state.showLoginForm = !state.showLoginForm;
   }
 };
 
